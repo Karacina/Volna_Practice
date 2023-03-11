@@ -153,6 +153,12 @@ namespace BD
             }
             reader.Close();
         }
+        public static void UncheckAllItems(CheckedListBox list)
+        {
+            foreach (int i in list.CheckedIndices)
+            {
+                list.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
     }
-    
 }
