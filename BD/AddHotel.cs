@@ -11,41 +11,41 @@ using System.Windows.Forms;
 
 namespace BD
 {
-    public partial class AddTourist : Form
+    public partial class AddHotel : Form
     {
-        private bool isEdited=false;
-        public AddTourist()
+        private bool isEdited = false;
+        public AddHotel()
         {
             InitializeComponent();
-            
+
         }
-        public AddTourist(string condition, bool edit)
+        public AddHotel(string condition, bool edit)
         {
             InitializeComponent();
             isEdited = edit;
-            Tools.FillFormInfo("туристы", "idТуриста Фамилия Имя Отчество Телефон ПаспортСерия ПаспортНомер",
+            Tools.FillFormInfo("отели", "idОтеля КодСтраны Название КоличествоЗвезд СтоимостьЗаНочь КоличествоКомнат КоличествоМест",
                 condition, Controls.OfType<TextBox>());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             string request = "";
             if (isEdited)
             {
-                request = "UPDATE туристы SET " +
-                    "idТуриста = @param1," +
-                    "Фамилия = @param2," +
-                    "Имя = @param3," +
-                    "Отчество = @param4," +
-                    "Телефон = @param5," +
-                    "ПаспортСерия = @param6," +
-                    "ПаспортНомер = @param7 " +
-                    "WHERE idТуриста = @param1";
+                request = "UPDATE отели SET " +
+                    "idОтеля = @param1," +
+                    "КодСтраны = @param2," +
+                    "Название = @param3," +
+                    "КоличествоЗвезд = @param4," +
+                    "СтоимостьЗаНочь = @param5," +
+                    "КоличествоКомнат = @param6," +
+                    "КоличествоМест = @param7 " +
+                    "WHERE idОтеля = @param1";
             }
             else
             {
-                request = "INSERT INTO туристы" +
-                    "(idТуриста, Фамилия, Имя, Отчество, Телефон, ПаспортСерия, ПаспортНомер)" +
+                request = "INSERT INTO отели" +
+                    "(idОтеля, КодСтраны, Название, КоличествоЗвезд, СтоимостьЗаНочь, КоличествоКомнат, КоличествоМест)" +
                     "VALUES (@param1,@param2,@param3,@param4,@param5,@param6,@param7)";
             }
             try

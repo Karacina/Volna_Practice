@@ -76,6 +76,36 @@ namespace BD
                 MessageBox.Show(ex.Message);
             }
         }
+        static public void ShowTable(string tableName,string columns,string condition, DataGridView dataGrid)
+        {
+            MySqlConnection connection = DBUtils.Connection;
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+
+            if (!dataGrid.Visible)
+            {
+                dataGrid.Visible = true;
+            }
+
+            MySqlCommand cmd = connection.CreateCommand();
+            MySqlDataAdapter adapter = null;
+            string request = $"SELECT {columns} FROM {tableName} WHERE {condition}";
+            try
+            {
+                cmd.CommandText = request;
+                adapter = new MySqlDataAdapter(cmd);
+
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dataGrid.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         static public void DeleteRecord(string table,string contidion)
         {
             MySqlConnection connection = DBUtils.Connection;
@@ -96,24 +126,6 @@ namespace BD
             {
                 MessageBox.Show("Ошибка удаления");
             }
-        }
-        static public string GetAllColumnNames(string table)
-        {
-            string columnNames = "";
-            MySqlConnection connection = DBUtils.Connection;
-            MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = $"SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table}'";
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            while (reader.Read())
-            {
-                columnNames+=(reader.GetValue(0));
-            }
-
-            reader.Close();
-            MessageBox.Show(columnNames);
-            return columnNames;
         }
         static public void FillComboBox(ComboBox box,string column,string table)
         {
@@ -153,6 +165,18 @@ namespace BD
             }
             reader.Close();
         }
+
+        static public string GetAllCheckedItems(CheckedListBox box)
+        {
+            string value = "";
+            if(box.CheckedItems.Count<=0)
+                return value;
+            
+            foreach (var t in box.CheckedItems)
+                value+=(t.ToString()[0].ToString()+",");
+            value = value.TrimEnd(',');
+
+            return $" AND КоличествоЗвезд in ({value})";
+        }
     }
-    
 }

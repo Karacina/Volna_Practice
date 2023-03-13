@@ -32,8 +32,8 @@ namespace BD
                 switch (tableName)
                 {
                     case "AddTourist":
-                        AddTourist tourist = new AddTourist($"idТуриста = {index}");
-                        tourist.Show();
+                        //AddTourist tourist = new AddTourist($"idТуриста = {index}");
+                        //tourist.Show();
                         break;
 
                     //case 2:

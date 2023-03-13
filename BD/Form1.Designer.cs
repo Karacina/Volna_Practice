@@ -35,13 +35,13 @@ namespace BD
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.калькулятор = new System.Windows.Forms.ToolStripMenuItem();
             this.таблицыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.туристыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.калькулятор = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -74,7 +74,7 @@ namespace BD
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(950, 31);
+            this.dataGridView1.Location = new System.Drawing.Point(777, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -120,6 +120,12 @@ namespace BD
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // калькулятор
+            // 
+            this.калькулятор.Name = "калькулятор";
+            this.калькулятор.Size = new System.Drawing.Size(144, 24);
+            this.калькулятор.Text = "Калькулятор тура";
+            // 
             // таблицыToolStripMenuItem
             // 
             this.таблицыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -161,12 +167,6 @@ namespace BD
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.выходToolStripMenuItem.Text = "Выход";
-            // 
-            // калькулятор
-            // 
-            this.калькулятор.Name = "калькулятор";
-            this.калькулятор.Size = new System.Drawing.Size(144, 24);
-            this.калькулятор.Text = "Калькулятор тура";
             // 
             // comboBox1
             // 
